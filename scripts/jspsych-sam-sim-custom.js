@@ -525,40 +525,7 @@ jsPsych.plugins.similarity = (function () {
 				));
 				$('#jspsych-sub-label_' + i).empty()
             }
-            ////////////////
-			/*
-            $('#jspsych-label_' + 0).html($('<p>', {
-                    text: trial.mystery_questions[0],
-                    css: {
-                        margin: '0px',
-                        height: '63px',
-                        color: 'black',
-                    }
-                }));
-            $('#jspsych-label_' + 1).html($('<p>', {
-                    text: trial.mystery_questions[1],
-                    css: {
-                        margin: '0px',
-                        height: '63px',
-                        color: 'black',
-                    }
-                }));
-			*/
-            /////////////// document.getElementById(  == $(
-
-            /*
-            for(var i = 0; i < trial.stimuli.length; i++) {
-				var label = '';
-				$('#jspsych-label_' + i).html($('<p>', {
-				text: trial.choices[i].toUpperCase(),
-				css: {
-					margin: '0px',
-					height: '25px',
-				}
-				}));
-            }
-			*/
-						
+ 					
 			var arrows=['KYLLÄ','EI'] // get correct order of yes and no
 			var lab;
 			for(var i = 0; i < trial.stimuli.length; i++) {
@@ -651,7 +618,7 @@ jsPsych.plugins.similarity = (function () {
 			
 			if (trial.practice) {
 				// we add likert example questions here
-				$('#jspsych-stim').append('Sitten tämä sama kurssikuvaus esitetään uudelleen ja sinun tehtävänäsi on arvioida se. Arvio kurssikuvauksen jälkeen, kuinka paljon haluat osallistua kurssille asteikolla yhdestä kymmeneen (1...10).<br>(1=en missään tapauksessa halua osallistua ... 10 = ehdottomasti haluan osallistua)<br>')
+				$('#jspsych-stim').append('Sitten tämä sama väite esitetään sinulle ja sinun tehtävänäsi on vastata siihen uudelleen. Kerro kuinka samaa mieltä olet esitetyn väitteen kanssa asteikolla yhdestä kymmeneen (1...10).<br>(1 = täysin eri mieltä, ..., 10 = täysin samaa mieltä)<br>')
 				$('#jspsych-stim').append('<form id="jspsych-survey-likert-form">');
 				questions = trial.mystery_questions //['Kurssilla syödään paljon']
 				// add likert scale questions
@@ -667,12 +634,11 @@ jsPsych.plugins.similarity = (function () {
 					options_string += '<input type="radio" name="' + question_id + '" value="' + j + '" style="height:25px; width:25px; vertical-align: middle;"><label class="jspsych-survey-likert-opt-label">' + "   " + '</label>';
 				  }
 				  options_string += ' 10'
-				  options_string += '</ul></div><br>';
+				  options_string += '</ul></div>';
 				  $('#jspsych-survey-likert-form').append(options_string);			 
 				}					
 				$('#jspsych-survey-likert-form').append('Paina nappia jatkaaksesi.');
 			}
-
             $('#jspsych-stim').css('visibility', 'visible');
         }
 

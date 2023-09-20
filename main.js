@@ -14,10 +14,10 @@ var timesplit = 1.0; // 1 in production
 var timing = {
     timeoutBeforePrompt: 0,
     timeoutBeforeStim: 0,
-    timeoutBeforeResponse: 1000/timesplit, // Before they can make resp after prompt/stim, WAS 1000
+    timeoutBeforeResponse: 750/timesplit, // Before they can make resp after prompt/stim, WAS 1000
     timeoutBeforeMystery: 1750/timesplit, // WAS 2000
     timeoutBeforeFeedback: 0, // This is evil. Don't use it
-    timeoutAfterFeedback: 1000/timesplit, // WAS 1000
+    timeoutAfterFeedback: 750/timesplit, // WAS 1000
     timeoutAfterFeedbackMystery: 1000, // WAS 1000
     timing_post_trial: 500/timesplit, // WAS 500
 };
@@ -25,7 +25,7 @@ var timing = {
 var you_timing = {
     timeoutBeforePrompt: 0,
     timeoutBeforeStim: 0,
-    timeoutBeforeResponse: 2000/timesplit, // Before they can make resp after prompt/stim, WAS 2000
+    timeoutBeforeResponse: 1500/timesplit, // Before they can make resp after prompt/stim, WAS 2000
 };
 
 //ONLY TEXT, PREAMBLES, AND HTML SHOULD BE CHANGED BEYOND THIS POINT.
@@ -55,8 +55,8 @@ function practiceGenPoli(opts) {
             "timeline": [
 			{
                     "phase": "FIRST",
-                    "prompt": "<br><strong>OHJE:</strong><br>Kyselyn aikana sinulle esitetään erilaisia mielipiteitä. Harkitse kunkin kysymyksen kohdalla hetki ennen kuin vastaat kannattavasi tai vastustavasi esitettyä mielipidettä. Kun uusi mielipide esitetään, sinua pyydetään osoittamaan oma mielipiteesi klikkaamalla kuvaa. Voit myös käyttää näppäimistön E ja I kirjaimia.<br>Ruudun oikeassa yläkulmassa oleva taulukko näyttää sinun ja muiden tekemät valinnat sitä mukaa, kun niitä kertyy.<br><br> Harkitse nyt seuraavaa mielipidettä:<br><strong>Pitääkö piirroselokuvissa esiintyä ankanmetsästystä?</strong>\
-                    <br>Oletko samaa vai eri mieltä? Valitse <strong>KYLLÄ</strong> tai <strong>EI</strong>. Huomaa, että punainen X on aina EI ja vihreä väkänen on aina KYLLÄ.<br>",
+                    "prompt": "<br><strong>OHJE:</strong><br>Sinulta kysytään mielipidettäsi erilaisiin väitteisiin. Vastaa oman mielipiteesi mukaisesti klikkaamalla kuvaa. Voit myös käyttää näppäimistön E ja I kirjaimia.<br>Kokeile ensin testikysymyksellä kyselyyn vastaamista:<br><br><strong>Pitääkö piirroselokuvissa esiintyä ankanmetsästystä?</strong>\
+                    <br>Oletko samaa vai eri mieltä? Valitse <strong>KYLLÄ</strong> tai <strong>EI</strong>.<br>Huomaa, että punainen X on aina EI ja vihreä väkänen on aina KYLLÄ.<br>",
                     /*"instructsAfterClick": "<br>Tee valintasi nyt kysymykseen:\
                     <br>Pitääkö sarjakuvissa olla juoneen liittyvää ankanmetsästystä?\
                     <br>(Huomio, että punainen X merkitsee aina EI ja vihreä väkänen tarkoittaa aina KYLLÄ.)<br>",*/
@@ -65,11 +65,11 @@ function practiceGenPoli(opts) {
                 },		
 				{
                     "peer": 1,
-                    "prompt": "<br>Hyvin meni! Nyt kun olet valinnut oman kantasi, yritä arvata muiden henkilöiden mielipidettä samasta asiasta.\
+                    "prompt": "<br>Sen jälkeen kun olet vastannut kysymykseen, sinua pyydetään arvioimaan miten luulet kahden muun henkilön vastanneen samaan väitteeseen.\
                     <br><strong>Pitääkö piirroselokuvissa esiintyä ankanmetsästystä?</strong>\
                     <br><strong>Miten arvioit ${peer}n mielipidettä?</strong>",
                     'feedbackPrompt': '<br>Saat palautteen muiden henkilöiden mielipiteistä nuolella, joka osoittaa kyseisen henkilön oikean vastauksen.\
-                    <br>Tämä palaute näkyy ruudulla yhden sekunnin ennen kuin voit arvata seuraavan henkilön mielipidettä. Huomaa, että muiden henkilöiden vastaukset jäävät näkyviin ruudun oikeassa yläkulmassa olevaan taulukkoon.<br>Paina nappia jatkaaksesi.',
+                    <br>Vastaukset näkyvät ruudulla sekunnin ajan, ennen kuin voit arvata seuraavan henkilön mielipidettä.<br>Huomaa, että muiden henkilöiden vastaukset jäävät näkyviin oikealla näkyvään taulukkoon.',
                     "feedbackChoices": "mouse",
                 },
 				{
@@ -77,11 +77,11 @@ function practiceGenPoli(opts) {
                     "prompt": "<br>Huomaa, että toiset henkilöt voivat olla yksimielisiä tai erimielisiä kunkin esitetyn mielipiteen suhteen.\
                     <br><strong>Pitääkö piirroselokuvissa esiintyä ankanmetsästystä?</strong>\
                     <br><strong>Miten arvioit ${peer}n mielipidettä?</strong>",   
-                    'feedbackPrompt': '<br>Huomaa että voit parantaa omia arvauksiasi tarkkailemalla muiden mielipiteitä kokeen aikana. Näet kaikki aikaisemmat valinnat ruudun oikeassa yläkulmassa olevasta taulukosta.<br>Paina nappia jatkaaksesi.',
+                    'feedbackPrompt': '<br>Voit parantaa omia arvauksiasi tarkkailemalla muiden mielipiteitä kyselyn aikana. Näet kaikki aikaisemmat valinnat oikealla näkyvästä taulukosta.<br>Paina nappia jatkaaksesi.',
                     "feedbackChoices": "mouse",
                 }, {
                     "phase": "MYSTERY",
-                    "prompt": "<br>Määräajoin näet opiskeluun ja työelämään liittyvän väitteen. Sitten näet kahden henkilön KYLLÄ tai EI mielipiteen väitteestä. Heidän valintansa osoitetaan nuolilla.<br><br><strong>Pitääkö oppilaitoksessa olla kaikille ilmainen ruokailu?<br>Väiski ja Repe olivat tätä mieltä:</strong>",
+                    "prompt": "<br>Välillä näet opiskeluun ja työelämään liittyvän väitteen sekä kahden henkilön vastaukset. Heidän vastauksensa osoitetaan nuolilla.<br><br><strong>Pitääkö oppilaitoksessa olla kaikille ilmainen ruokailu?<br>Väiski ja Repe olivat tätä mieltä:</strong>",
                     //Select the box you would prefer based on the other participants' choices to continue.
                     "peer1": 1,
                     "peer2": 2,
@@ -128,7 +128,7 @@ var welcome_block = {
     "type": "instructions",
     "show_clickable_nav": true,
     "key_forward": "",	
-    "pages": ["<div class='center-content'><br><br>Tervetuloa DIGISTI hankkeen kyselyyn!<br><br>Kyselyyn vastaamiseen menee aikaa noin 15 minuuttia.<br><strong>HUOM: Ylimääräisenä palkintona arvomme viisi 50e arvoista S-ryhmän lahjakorttia kaikkien kyselyn loppuun saakka tehneiden kesken</strong>.<br><p><strong>Tekniset vaatimukset:</strong><br>Kysely vaatii Javascriptin toimiakseen.<br>Pyydämme varmuuden vuoksi laittamaan mainosten ja skriptien estäjät pois päältä kyselyn ajaksi.</p> <p>Ethän päivitä tai lataa sivua uudestaan kesken kyselyn.<br>Muutoin kysely on aloitettava kokonaan alusta ja edelliset vastaukset katoavat.</p><p>Paina nappia jatkaaksesi."],
+    "pages": ["<div class='center-content'><br><br>Tervetuloa DIGISTI hankkeen kyselyyn!<br><br>Kyselyyn vastaamiseen menee noin 15 minuuttia.<br><strong>HUOM: Ylimääräisenä palkintona arvomme kahdeksan 50e arvoista S-ryhmän lahjakorttia kaikkien kyselyn loppuun saakka tehneiden kesken</strong>.<br><p><strong>Tekniset vaatimukset:</strong><br>Kysely vaatii Javascriptin toimiakseen.<br>Pyydämme varmuuden vuoksi laittamaan mainosten ja skriptien estäjät pois päältä kyselyn ajaksi.</p> <p>Ethän päivitä tai lataa sivua uudestaan kesken kyselyn.<br>Muutoin kysely on aloitettava kokonaan alusta ja edelliset vastaukset katoavat.</p><p>Paina nappia jatkaaksesi."],
     //choices: 'mouse',
 	on_load: function() {
     // Remove progress bar from screen
@@ -186,10 +186,12 @@ var demographics_block = {
     questions: [        
         'Mikä on sukupuolesi?',
         'Mikä on ikäsi vuosissa (numero)?', // number
+		'Missä opiskelet?',
+		'Missä oppilaitoksesi sijaitsee?',
     ],
     value: [], // EMPTY IN PRODUCTION
-    input_type: ['likert','text'], // ['text','text','text','text']
-    label: [['nainen', 'mies', 'muu/en halua määritellä'],''],
+    input_type: ['likert','text','likert','likert'], // ['text','text','text','text']
+    label: [['nainen', 'mies', 'muu/en halua määritellä'],'',['lukiossa','ammattikoulussa'],['uudellamaalla','muualla Suomessa']],
     validation: [function (x) {
             return (x != 'undefined')
         },
@@ -197,12 +199,20 @@ var demographics_block = {
             if (x == '') {
                 return false;
             };
-            return ((Number(x) <= 80) & (Number(x) >= 12));
-        }
+            return ((Number(x) <= 80) & (Number(x) >= 10));
+        },
+		function (x) {
+            return (x != 'undefined')
+        },		
+		function (x) {
+            return (x != 'undefined')
+        },		
     ],
     validationMessage: [
         'sukupuoli puuttuu',
-        'ikä virheellinen (oltava välillä 12-80 vuotta)',
+        'ikä virheellinen (oltava välillä 10-80 vuotta)',
+		'oppilaitos puuttuu',
+		'sijainti puuttuu',
     ],
     preamble: ["<div>\
         <h4>OSIO A: Taustakysymykset</h4>Vastaa alla oleviin kysymyksiin ja paina nappia jatkaaksesi.\
@@ -222,7 +232,7 @@ var demographics_block = {
 
 var likert_and_survey_block = {
     type: 'survey-likert',
-    preamble: '<div><h4>OSIO B: Mielipiteet opiskelusta</h4>Seuraavat kuusi kuvausta liittyvät opiskeluun.<br>Kerro kuinka samaa mieltä olet esitetyn väitteen kanssa asteikolla yhdestä kymmeneen (1...10):<br>1 = täysin eri mieltä, ..., 10 = täysin samaa mieltä</div><br>',
+    preamble: '<div><h4>OSIO B: Mielipiteet</h4>Kyselyssä kysytään mielipiteitäsi opiskelusta ja työelämästä.<br>Kerro kuinka samaa mieltä olet esitetyn väitteen kanssa asteikolla yhdestä kymmeneen (1...10):<br>1 = täysin eri mieltä, ..., 10 = täysin samaa mieltä</div><br>',
     questions: stims.main_questions_statement,
     on_finish:
     function () {		
@@ -285,7 +295,7 @@ var fullscreen_block = {
     "type": "instructions",
     "show_clickable_nav": true,
     "key_forward": "",
-    "pages": ['<h4>OSIO C: Mielipiteitä opiskelusta ja työelämästä</h4>Seuraavat kysymykset liittyvät opiskeluun ja työelämään.<br>Aloitamme harjoitusosuudella.<br><br>Ole hyvä ja siirry nyt kokoruudun tilaan, ellet jo ole sellaisessa.<br>Tämä tapahtuu painamalla F11 näppäintä tai valitsemalla selainikkunan reunasta kokoruudun tilan.<br><br>Paina nappia jatkaaksesi.'],
+    "pages": ['<h4>OSIO C: Mielipiteitä opiskelusta ja työelämästä</h4>Seuraavassa kysymme mielipiteitäsi opiskelusta ja työelämästä.<br>Ensin saat ohjeita kyselyyn vastaamiseen ja pääset kokeilemaan kyselyä testikysymyksellä.<br><br>Siirry nyt kokoruudun tilaan, ellet jo ole.<br>Tämä tapahtuu painamalla F11 näppäintä tai valitsemalla selainikkunan reunasta kokoruudun tilan.<br><br>Paina nappia jatkaaksesi.'],
     "on_finish": function () {
 		;
     }
