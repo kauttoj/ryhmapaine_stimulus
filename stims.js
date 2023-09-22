@@ -53,7 +53,7 @@ var stims = {
 	prompts:[
 "Digitaalisten työkalujen käyttöä pitäisi opettaa enemmän oppilaitoksissa.",
 "Työnhakutaitoja pitäisi opettaa enemmän oppilaitoksissa.",
-"Pitäisikö oppilaitoksissa opettaa verkon ryhmätyöskentelyssä tarvittavia ohjelmien käyttöä enemmän (esim. Zoom, Teams)?",
+"Pitäisikö oppilaitoksissa opettaa ryhmätyöskentelyssä tarvittavien ohjelmien käyttöä enemmän (esim. Zoom, Teams)?",
 "Pitäisikö oppilaitoksissa opettaa sosiaalisia taitoja, joita tarvitaan kasvokkain kohtaamisissa?",
 "Pitäisikö oppilaitoksissa opettaa sosiaalisia taitoja, joita tarvitaan verkossa?",
 "Pitäisikö oppilaitoksissa tukea opiskelijoiden kokonaisvaltaista hyvinvointia laajemmin kuin vain opintoihin liittyen?",
@@ -80,7 +80,7 @@ var stims = {
 "Pitäisikö ympäristöystävällisyyteen tähtäävien teknologian käyttöä lisätä?",
 "Pitäisikö yhteiskunnan tukea enemmän nuorten harrastustoimintaa?",
 "Pitäisikö Suomessa olla enemmän työpaikkoja, joihin pääsee ilman tutkintoa?",
-"Pitäisikö kansalaisten kansalaisia kannustaa osallistumaan enemmän yhteisistä asioista päättämiseen?",
+"Pitäisikö kansalaisia kannustaa osallistumaan enemmän yhteisistä asioista päättämiseen?",
 "Oppilaitoksissa pitäisi olla enemmän nuorisotyöntekijöitä.",
 "Suomessa pitäisi kiinnittää enemmän huomiota nuorten yksinäisyydestä johtuviin ongelmiin.",
 "Työntekijöiden henkisestä hyvinvoinnista huolehtiminen on tärkeää.",
