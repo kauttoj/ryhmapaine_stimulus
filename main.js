@@ -184,35 +184,36 @@ var comments_block = {
 var demographics_block = {
     type: 'survey-text-sam',
     questions: [        
-        'Mikä on sukupuolesi?',
-        'Mikä on ikäsi vuosissa (numero)?', // number
+        'Mikä on sukupuolesi?',        
 		'Missä opiskelet?',
 		'Missä oppilaitoksesi sijaitsee?',
+		'Mikä on ikäsi vuosissa (numero)?', // number
     ],
     value: [], // EMPTY IN PRODUCTION
-    input_type: ['likert','text','likert','likert'], // ['text','text','text','text']
-    label: [['nainen', 'mies', 'muu/en halua määritellä'],'',['lukiossa','ammattikoulussa'],['uudellamaalla','muualla Suomessa']],
-    validation: [function (x) {
+    input_type: ['likert','likert','likert','text'], // ['text','text','text','text']
+    label: [['nainen', 'mies', 'muu/en halua määritellä'],['lukiossa','ammattikoulussa'],['uudellamaalla','muualla Suomessa'],''],
+    validation: [
+		function (x) {
             return (x != 'undefined')
         },
-        function (x) {
+		function (x) {
+            return (x != 'undefined')
+        },		
+		function (x) {
+            return (x != 'undefined')
+        },
+		function (x) {
             if (x == '') {
                 return false;
             };
             return ((Number(x) <= 80) & (Number(x) >= 10));
         },
-		function (x) {
-            return (x != 'undefined')
-        },		
-		function (x) {
-            return (x != 'undefined')
-        },		
     ],
     validationMessage: [
-        'sukupuoli puuttuu',
-        'ikä virheellinen (oltava välillä 10-80 vuotta)',
+        'sukupuoli puuttuu',        
 		'oppilaitos puuttuu',
 		'sijainti puuttuu',
+		'ikä virheellinen (oltava välillä 10-80 vuotta)',
     ],
     preamble: ["<div>\
         <h4>OSIO A: Taustakysymykset</h4>Vastaa alla oleviin kysymyksiin ja paina nappia jatkaaksesi.\
