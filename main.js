@@ -343,9 +343,9 @@ jsPsych.pluginAPI.preloadImages(stims, function () {
 			
 			$('#jspsych-content').empty()
             .css('visibility', 'visible')
-            .html('<br>Siirryt nyt automaattisesti eteenpäin<br><a href="SECRET">Klikkaa linkkiä siirtyäksesi eteenpäin</a>');
+            .html('<br>Siirryt nyt automaattisesti eteenpäin<br><a href="https://www.google.com">Klikkaa linkkiä siirtyäksesi eteenpäin</a>');
 
-			//window.open("SECRET", "_self");
+			//window.open("https://www.google.com", "_self");
 			
 		}
     });
