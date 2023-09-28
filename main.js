@@ -191,7 +191,7 @@ var demographics_block = {
     ],
     value: [], // EMPTY IN PRODUCTION
     input_type: ['likert','likert','likert','text'], // ['text','text','text','text']
-    label: [['nainen', 'mies', 'muu/en halua määritellä'],['lukiossa','ammattikoulussa'],['uudellamaalla','muualla Suomessa'],''],
+    label: [['nainen', 'mies', 'muu/en halua määritellä'],['lukiossa','ammattikoulussa','opiskelen jossain muualla','en opiskele tällä hetkellä'],['uudellamaalla','muualla Suomessa'],''],
     validation: [
 		function (x) {
             return (x != 'undefined')
@@ -228,6 +228,14 @@ var demographics_block = {
 			g = 'a';
 		}
 		console.log('valittu sukupuoli: ' + g)
+		var bad_school = trial_data['responses'].includes("opiskelen jossain muualla") | trial_data['responses'].includes("en opiskele tällä hetkellä")
+		var myurl = 'https://www.google.com'
+		if (bad_school) {
+			$('#jspsych-content').empty()
+				.css('visibility', 'visible')
+				.html('<br>Sinut ohjataan toiselle sivustolle.<br><a href="' + myurl + '">Klikkaa linkkiä siirtyäksesi eteenpäin</a>');
+			window.open(myurl, "_self");
+		}
 	}
 };
 

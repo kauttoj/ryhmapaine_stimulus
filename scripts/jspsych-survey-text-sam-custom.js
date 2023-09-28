@@ -239,6 +239,7 @@ jsPsych.plugins['survey-text-sam'] = (function() {
 		} catch {
 			;
 		}
+		resp["navigator"] = question_data["navigator"]
 
 	    // save data
 	    var trialdata = {
