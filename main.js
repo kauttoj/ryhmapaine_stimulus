@@ -128,7 +128,7 @@ var welcome_block = {
     "type": "instructions",
     "show_clickable_nav": true,
     "key_forward": "",	
-    "pages": ["<div class='center-content'><br><br>Tervetuloa DIGISTI hankkeen kyselyyn!<br><br>Kyselyyn vastaamiseen menee noin 15 minuuttia.<br><strong>HUOM: Ylimääräisenä palkintona arvomme kahdeksan kahden leffalipun pakettia kaikkien kyselyn loppuun saakka tehneiden kesken</strong>.<br><p><strong>Tekniset vaatimukset:</strong><br>Kysely vaatii Javascriptin toimiakseen.<br>Pyydämme varmuuden vuoksi laittamaan mainosten ja skriptien estäjät pois päältä kyselyn ajaksi.</p> <p>Ethän päivitä tai lataa sivua uudestaan kesken kyselyn.<br>Muutoin kysely on aloitettava kokonaan alusta ja edelliset vastaukset katoavat.</p><p>Paina nappia jatkaaksesi."],
+    "pages": ["<div class='center-content'><br><br>Tervetuloa DIGISTI hankkeen kyselyyn!<br><br>Kyselyyn vastaamiseen menee noin 15 minuuttia.<br><br><p><strong>Tekniset vaatimukset:</strong><br>Kysely vaatii Javascriptin toimiakseen.<br>Pyydämme varmuuden vuoksi laittamaan mainosten ja skriptien estäjät pois päältä kyselyn ajaksi.</p> <p>Ethän päivitä tai lataa sivua uudestaan kesken kyselyn.<br>Muutoin kysely on aloitettava kokonaan alusta ja edelliset vastaukset katoavat.</p><p>Paina nappia jatkaaksesi."],
     //choices: 'mouse',
 	on_load: function() {
     // Remove progress bar from screen
